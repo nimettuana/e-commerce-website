@@ -1,0 +1,99 @@
+<div role="heading"
+style="display: flex; justify-content: center;
+color: white;
+font-size: 12px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+ background-color: pink;
+line-height: 30px;
+letter-spacing: 2px;">
+<span> 100₺ ve Üzeri Kargo Bedava</span>
+</div>
+
+
+<!-- Font Awesome icons İÇİN BUNU YÜKLEMEM GEREKTİ -->
+<link
+href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+rel="stylesheet"  type='text/css'>
+
+
+
+<!-- Aşağıda toolbar bölümünü yapmaya başladım -->
+
+<div>
+<div>
+<div>
+<mat-toolbar style="background-color: transparent; height: 100px">
+    <div id="logo">
+      <a class="logo" href="/">
+        <img src="assets/images/logo.png" alt="image"
+        style="max-width: 100%;
+        max-height: 80px;
+        position: absolute; left: 50%; top: 6.3%;
+        border-radius: 50px;
+        ">
+      </a>
+    </div>
+    <div class="container" style="margin-left: auto;">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Hesabım</button>
+        <button mat-menu-item>Üye Ol</button>
+        <button mat-menu-item>Sepetim</button>
+        <button mat-menu-item>Ana Sayfaya Dön</button>
+      </mat-menu>
+      <div >
+
+    <a mat-button href="/" routerLink="/hesap" matTooltip="Hesabım">
+    <mat-icon>person</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/uye" matTooltip="Üye Ol">
+    <mat-icon>person_add</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/sepet" matTooltip="Sepetim"
+      matBadgeColor="accent" matBadgeSize="small">&nbsp;{{cartitems}}
+    <mat-icon >shopping_basket</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/home" matTooltip="Ana Sayfaya Dön">
+      <mat-icon>home</mat-icon>
+    </a>
+      </div>
+    </div>
+</mat-toolbar>
+</div>
+</div>
+</div>
+
+
+<mat-divider></mat-divider>
+
+<br>
+
+<!-- TEK BİR ÜRÜN DETAYLARI -->
+<div class="container">
+  <div class="row product-detail">
+
+    <div class="col-sm-4">
+      <img class="product-img" src="{{productData.images[0]}}">
+      <div>
+        <button mat-raised-button style="color: pink; border-radius: 20px;" class="btn btn-success" (click)="addToCart(productData)"> Sepete Ekle</button>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div>
+        <h1>{{productData.title}} </h1>
+        <p style="color: pink;"> Special Price: </p>
+        <h3> Fiyat : 9.99₺ </h3>
+        <strong>Category: &nbsp;{{productData.category}} </strong><br>
+        <strong>Açıklama: </strong>
+        <pre> {{productData.description}}</pre>
+           <strong>Stocks: {{productData.stock}} </strong>
+      </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+

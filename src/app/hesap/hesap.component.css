@@ -1,0 +1,93 @@
+.bg-color{
+
+  padding: 60px 0px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.navigation {
+  display: none;}
+
+.navigation ul {
+  list-style-type: none;
+}
+.navigation .HeaderMenu2>li>a {
+  padding: 0 23px;
+  line-height: 49px;
+  color: #2b2b2b;
+  font-size: 13px;
+  display: block;
+  font-weight: 600;
+  letter-spacing: .4px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
+}
+.navigation .HeaderMenu2>li ul {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 100%;
+  z-index: 99;
+  background: #fff;
+  width: 240px;
+  padding: 0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .15) !important;
+  border: 1px solid rgba(0, 0, 0, .05);
+}
+.navigation .HeaderMenu2>li>ul li {
+  position: relative;
+}
+.navigation .HeaderMenu2>li>ul>li>a {
+  display: block;
+  color: #2b2b2b;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: normal;
+  text-align: left;
+  padding: 15px 25px;
+  position: relative;
+}
+
+.container button:hover{
+  color: white;
+  background-color: palevioletred;
+}
+
+.card{
+  transition: all .2s ease-in-out;
+  border-radius: 30px;
+
+}
+.cardmain{
+  position: relative;
+}
+.discount{
+  position: relative;
+  background-color: purple;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  height: 30px;
+  width: 70px;
+  border-radius: 0px 15px 15px 0px;
+  line-height: 30px;
+  font-style: italic;
+
+}
+.label{
+  position: absolute;
+  bottom: 84px;
+  left: 10px;
+  text-transform: uppercase;
+}
+
+.footerLogoTutucu{
+
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+
+}

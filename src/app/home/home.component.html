@@ -1,0 +1,444 @@
+    <div role="heading"
+      style="display: flex; justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+       background-color: pink;
+      line-height: 30px;
+      letter-spacing: 2px;">
+<span> 100₺ ve Üzeri Kargo Bedava</span>
+    </div>
+
+
+    <!-- Font Awesome icons İÇİN BUNU YÜKLEMEM GEREKTİ -->
+
+
+<!-- Aşağıda toolbar bölümünü yapmaya başladım -->
+
+<div>
+  <div>
+    <div>
+      <mat-toolbar style="background-color: transparent; height: 100px">
+          <div id="logo">
+            <a class="logo" href="/">
+              <img src="assets/images/logo.png" alt="image"
+              style="max-width: 100%;
+              max-height: 80px;
+              position: absolute; left: 50%; top: 6.3%;
+              border-radius: 50px;
+              ">
+            </a>
+          </div>
+          <div class="container" style="margin-left: auto;">
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Hesabım</button>
+              <button mat-menu-item>Üye Ol</button>
+              <button mat-menu-item>Sepetim</button>
+            </mat-menu>
+            <div >
+
+          <a mat-button href="/" routerLink="/hesap" matTooltip="Hesabım">
+          <mat-icon>person</mat-icon>
+            </a>
+          <a mat-button href="/" routerLink="/register"  matTooltip="Üye Ol">
+          <mat-icon>person_add</mat-icon>
+            </a>
+          <a mat-button href="/" routerLink="/sepet" matTooltip="Sepetim"
+           matBadgeColor="accent" matBadgeSize="small"  >&nbsp;{{cartitems}}
+          <mat-icon >shopping_basket</mat-icon>
+            </a>
+
+            </div>
+          </div>
+      </mat-toolbar>
+    </div>
+  </div>
+</div>
+
+
+<mat-divider></mat-divider>
+
+<br>
+
+<!-- toolbar altındaki bölümü yaptım. select kullanıcağımı düşünmüştüm ama button ve manü kullandum. -->
+
+<div class="container" style="display: flex; justify-content: center; ">
+
+  <div class="kolye">
+    <button mat-button [matMenuTriggerFor]="kolyeMenu" style="width: 200px;">Kolye</button>
+<mat-menu #kolyeMenu="matMenu" yPosition="below">
+  <button mat-menu-item>İnci Kolye</button>
+  <button mat-menu-item>Charm Kolye</button>
+  <button mat-menu-item>Doğal Taş Kolye</button>
+  <button mat-menu-item>Murano Cam Kolye</button>
+</mat-menu>
+</div>
+
+<div class="bileklik">
+<button mat-button [matMenuTriggerFor]="bileklikMenu" style="width: 200px;">Bileklik</button>
+<mat-menu #bileklikMenu="matMenu" yPosition="below">
+  <button mat-menu-item>İnci Bileklik</button>
+  <button mat-menu-item>Charm Bileklik</button>
+  <button mat-menu-item>Doğal Taş Bileklik</button>
+  <button mat-menu-item>Murano Cam Bileklik</button>
+</mat-menu>
+</div>
+
+<div class="küpe">
+<button mat-button [matMenuTriggerFor]="kupeMenu" style="width: 200px;">Küpe</button>
+<mat-menu #kupeMenu="matMenu" yPosition="below">
+  <button mat-menu-item>İnci Küpe</button>
+  <button mat-menu-item>Charm Küpe</button>
+  <button mat-menu-item>Doğal Taş Küpe</button>
+  <button mat-menu-item>Murano Cam Küpe</button>
+</mat-menu>
+</div>
+
+<div class="halhal">
+<button mat-button [matMenuTriggerFor]="halhalMenu" style="width: 200px;">Halhal</button>
+<mat-menu #halhalMenu="matMenu" yPosition="below">
+  <button mat-menu-item>İnci Halhal</button>
+  <button mat-menu-item>Charm Halhal</button>
+  <button mat-menu-item>Doğal Taş Halhal</button>
+  <button mat-menu-item>Murano Cam Halhal</button>
+</mat-menu>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<!-- CARDLARI YAPMAYA BAŞLADIM -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('animated');
+    });
+  });
+</script>
+
+
+
+<!--
+<div class="containers" >
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-main">
+        <div class="discount">-9%</div>
+
+<div class="p">
+  <div class="image">
+    <img src="assets/images/incibileklik2.jpeg"
+     alt="" style="width: 100%; height: 150px; object-fit: cover;">
+  </div>
+</div>
+
+
+<div class="cart-line"> </div>
+<div class="cart-item">
+  <div class="icon-container">
+    <ul style="list-style: none; ">
+
+      <li> -->
+        <!-- *ngFor="let item of items" ilk başta bunu kullanmıştım  -->
+<!-- <div *ngFor="let item of cartItems">
+{{item.id}}
+{{item.name}}
+  <button mat-button (click)="addToCart(item)"><a href="" class="cart-icon" ><i class="fa fa-shopping-cart"></i></a></button>
+</div>
+      </li>
+      <li><a href="" class="heart-icon"><i class="fa fa-heart "></i></a></li>
+      <li><a href="" class="search-icon"><i class="fa fa-search"></i></a></li>
+    </ul>
+  </div>
+
+</div>
+
+</div>
+<div class="content">
+  <a href="" class="baslik">İnci Bileklik</a>
+  <div class="rating">
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  </div>
+
+  <div class="content">
+    <p><span class="money">190₺</span>
+    <span class="old-money">250₺</span></p>
+    </div>
+</div>
+</div>
+      </div>
+    </div>
+</div> -->
+
+
+
+
+<!-- İKİNCİ CARD ÇALIŞMASI -->
+<!-- <div class="containers" >
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+
+        <div class="card-main">
+        <div class="discount">-19%</div>
+
+<div class="p">
+  <div class="image">
+    <img src="assets/images/charmkupe.jpeg" alt="" style="width: 100%; height: 150px; object-fit: cover;">
+  </div>
+</div>
+
+
+<div class="cart-line"> </div>
+<div class="cart-item">
+  <div class="icon-container">
+    <ul style="list-style: none; ">
+      <div *ngFor="let item of cartItems">
+        {{item.id}}
+        {{item.name}}
+          <button mat-button (click)="addToCart(item)"><a href="" class="cart-icon" ><i class="fa fa-shopping-cart"></i></a></button>
+        </div>
+      <li><a href="" class="heart-icon"><i class="fa fa-heart "></i></a></li>
+      <li><a href="" class="search-icon"><i class="fa fa-search"></i></a></li>
+    </ul>
+  </div>
+
+
+
+
+
+</div>
+
+</div>
+<div class="content">
+  <a href="" class="baslik">Charm Küpe</a>
+  <div class="rating">
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  </div>
+
+  <div class="content">
+    <p><span class="money">110₺</span>
+    <span class="old-money">200₺</span></p>
+    </div>
+</div>
+</div>
+      </div>
+    </div>
+</div> -->
+
+
+
+<!-- ÜÇÜNCÜ CARD ÇALIŞMASI -->
+<!-- <div class="containers">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+
+        <div class="card-main">
+        <div class="discount">-12%</div>
+
+<div class="p">
+  <div class="image">
+    <img src="assets/images/halhal.jpeg" alt="" style="width: 100%; height: 150px; object-fit: cover;">
+  </div>
+</div>
+
+
+<div class="cart-line"> </div>
+<div class="cart-item">
+  <div class="icon-container">
+    <ul style="list-style: none; ">
+      <div *ngFor="let item of cartItems">
+        {{item.id}}
+        {{item.name}}
+          <button mat-button (click)="addToCart(item)"><a href="" class="cart-icon" ><i class="fa fa-shopping-cart"></i></a></button>
+        </div>
+      <li><a href="" class="heart-icon"><i class="fa fa-heart "></i></a></li>
+      <li><a href="" class="search-icon"><i class="fa fa-search"></i></a></li>
+    </ul>
+  </div>
+
+
+
+
+
+</div>
+
+</div>
+<div class="content">
+  <a href="" class="baslik">Doğal Taş Halhal</a>
+  <div class="rating">
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  </div>
+
+  <div class="content">
+    <p><span class="money">90₺</span>
+    <span class="old-money">150₺</span></p>
+    </div>
+</div>
+</div>
+      </div>
+    </div>
+</div> -->
+
+
+
+
+<!-- DÖRDÜNCÜ CARD ÇALIŞMASI -->
+<!-- <div class="containers">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+
+        <div class="card-main">
+        <div class="discount">-10%</div>
+
+<div class="p">
+  <div class="image">
+    <img src="assets/images/incibileklik.jpeg" alt="" style="width: 100%; height: 150px; object-fit: cover;">
+  </div>
+</div>
+
+
+<div class="cart-line"> </div>
+<div class="cart-item">
+  <div class="icon-container">
+    <ul style="list-style: none; ">
+      <div *ngFor="let item of cartItems">
+        {{item.id}}
+        {{item.name}}
+          <button mat-button (click)="addToCart(item)"><a href="" class="cart-icon" ><i class="fa fa-shopping-cart"></i></a></button>
+        </div>
+      <li><a href="" class="heart-icon"><i class="fa fa-heart "></i></a></li>
+      <li><a href="" class="search-icon"><i class="fa fa-search"></i></a></li>
+    </ul>
+  </div>
+
+
+
+
+
+</div>
+
+</div>
+<div class="content">
+  <a href="" class="baslik">incili Şık Bileklik</a>
+  <div class="rating">
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  <i class="fa fa-star-o"></i>
+  </div>
+
+  <div class="content">
+    <p><span class="money">220₺</span>
+    <span class="old-money">280₺</span></p>
+    </div>
+</div>
+</div>
+      </div>
+    </div>
+</div> -->
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+<!-- FOOTER ÇALIŞMASI -->
+<!-- <section class="footer-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+<img src="assets/images/logo.png" alt="footerLogo"
+  style=" height: 50px;
+border-radius: 50px;">
+<div class="footer-top-menu">
+<ul>
+  <li>
+    <i class="fa fa-home"></i>
+     <span class="heading">Adres</span>
+     <span class="address"> 3424 Bahçelievler,İstanbul,Türkiye</span>
+  </li>
+  <li>
+    <i class="fa fa-envelope"></i>
+    <span class="heading">Bize ulaşın: </span>
+    <span class="email">
+      <a href="">example.com</a>
+    </span>
+  </li>
+</ul>
+</div>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- YENİ BİR CARD DENEMESİ YAPIYORUM -->
+<div class="container-fluid" style="background-color: black;">
+  <div class="row">
+    <div class="col-md-2 mt-3" *ngFor="let item of data.products">
+      <div class="card mt-2">
+        <div class="card-body">
+          <div class="card-img-actions">
+<img routerLink="/product-detail/{{item.id}}" src="{{item.thumbnail}}">
+          </div>
+        </div>
+
+<div class="card-body bg-light text-center">
+  <div>
+    <h6 class="font-weight-semibold">
+      <a class="text-default">{{item.title}}</a>
+    </h6>
+  </div>
+  <h3 class="mb-0 font-weight-semibold"> {{item.price}}₺</h3>
+  <button mat-button routerLink="/product-detail/{{item.id}}"
+  class="btn btn-sm btn-dark mt-2" color="primary">
+  <i class="fa fa-solid fa-info mr-2"> </i>&nbsp;&nbsp; Detaylara bak</button>
+  <button (click)="addToCart(item)" mat-button class="btn btn-sm btn-warning mt-2" color="accent" >
+    <i  class="fa fa-cart-plus mr-2"></i>&nbsp;Sepete Ekle</button>&nbsp;
+    <button (click)="removeitem(item)" mat-button class="btn btn-sm btn-danger mt-2" >
+      <i  class="fa fa-remove mr-2">X</i>&nbsp;Sepetten Çıkar</button>
+    </div>
+
+
+    </div>
+  </div>
+</div>

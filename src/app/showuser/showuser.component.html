@@ -1,0 +1,141 @@
+<div role="heading"
+style="display: flex; justify-content: center;
+color: white;
+font-size: 12px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+ background-color: pink;
+line-height: 30px;
+letter-spacing: 2px;">
+<span> 100₺ ve Üzeri Kargo Bedava</span>
+</div>
+
+<!-- Aşağıda toolbar bölümünü yapmaya başladım -->
+
+<div>
+<div>
+<div>
+<mat-toolbar style="background-color: transparent; height: 100px">
+    <div id="logo">
+      <a class="logo" href="/">
+        <img src="assets/images/logo.png" alt="image"
+        style="max-width: 100%;
+        max-height: 80px;
+        position: absolute; left: 50%; top: 6.3%;
+        border-radius: 50px;
+        ">
+      </a>
+    </div>
+    <div class="container" style="margin-left: auto;">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Hesabım</button>
+        <button mat-menu-item>Üye Ol</button>
+        <button mat-menu-item>Sepetim</button>
+      </mat-menu>
+      <div >
+
+    <a mat-button href="/" routerLink="/hesap" matTooltip="Hesabım">
+    <mat-icon>person</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/uye" matTooltip="Üye Ol">
+    <mat-icon>person_add</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/sepet" matBadgeColor="accent"
+     matBadgeSize="small"  matTooltip="Sepetim">&nbsp;{{cartitems}}
+    <mat-icon>shopping_basket</mat-icon>
+      </a>
+
+      </div>
+    </div>
+</mat-toolbar>
+</div>
+</div>
+</div>
+
+
+<mat-divider></mat-divider>
+
+<br>
+<br>
+<br>
+
+<!-- BU SAYFADA HEM PROFİL SAYFASI HEM DE TOPLAM SEPET ÜCRETİ GÖZÜKECEK.
+  SİPARİŞİ KAYDET DEYİNCE ORDER-PAGE SAYFASINA YÖNLENDİRİLECEK -->
+
+<div class="containers">
+  <div class="card">
+    <div class="left">
+      <div class="col-md-4 mt-1">
+        <div class="card-text center-sidebar">
+          <div class="card-body-1">
+
+<img src="assets/images/logo.png"
+  style=" border-radius: 30px; height: 80px;
+   width: 80px; margin-right: 100px;">
+<div class="mt-3">
+  <h4>Jane Doe</h4>
+
+
+</div>
+          </div>
+        </div>
+</div>
+    </div>
+<div class="right">
+            <h1 class="m-3 pt-3 "
+             style="font-family: Arial, Helvetica, sans-serif;
+              font-style: oblique;">About</h1>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3"> <h3> Full Name</h3></div>
+                <div class="col-sm-9 text-secondary"> Jane Doe</div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-3"> <h3>Email</h3></div>
+                <div class="col-sm-9 text-secondary"> janeexample.com</div>
+                 </div>
+              <hr>
+              <div class="row">
+              <div class="col-md-3"> <h3>Phone</h3></div>
+              <div class="col-sm-9 text-secondary"> (239) 816-9029 </div>
+              </div>
+              <hr>
+              <div class="row col-md-3"> <h3>Address</h3>
+                <div class="col-sm-9 text-secondary"> Bay Area, San Francisco, CA</div>
+              </div>
+
+            </div>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Sepeti ekledim sadece görsel görünümünü düzelticem -->
+<ng-container>
+  <div class="container" style="margin-top: 20px; margin: bottom 20px; display: flex; justify-content: right;">
+    <div>
+      <h1>Sepetim: </h1><br>
+      <strong style="font-size: 35px; color: rgb(201, 65, 222);">
+        {{totalamount}} ₺</strong><br> <br>
+      <div class="btn-group mt-3">
+        <button mat-raised-button mat-button class="btn btn-primary" routerLink="/orderpage" color="accent" >Siparişi Tamamla</button> <br> <br>
+        <button mat-raised-button  class="btn btn-secondary" (click)="Empty()">Sepeti Temizle</button>
+      </div>
+  </div>
+  </div>
+</ng-container>
+
+
+
+
+<br>
+<br>
+<br>
+

@@ -1,0 +1,79 @@
+<div role="heading"
+style="display: flex; justify-content: center;
+color: white;
+font-size: 12px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+ background-color: pink;
+line-height: 30px;
+letter-spacing: 2px;">
+<span> 100₺ ve Üzeri Kargo Bedava</span>
+</div>
+
+<!-- Aşağıda toolbar bölümünü yapmaya başladım -->
+
+<div>
+<div>
+<div>
+<mat-toolbar style="background-color: transparent; height: 100px">
+    <div id="logo">
+      <a class="logo" href="/">
+        <img src="assets/images/logo.png" alt="image"
+        style="max-width: 100%;
+        max-height: 80px;
+        position: absolute; left: 50%; top: 6.3%;
+        border-radius: 50px;
+        ">
+      </a>
+    </div>
+    <div class="container" style="margin-left: auto;">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Hesabım</button>
+        <button mat-menu-item>Üye Ol</button>
+        <button mat-menu-item>Sepetim</button>
+      </mat-menu>
+      <div >
+
+    <a mat-button href="/" routerLink="/hesap" matTooltip="Hesabım">
+    <mat-icon>person</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/uye" matTooltip="Üye Ol">
+    <mat-icon>person_add</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/sepet" matBadgeColor="accent" matBadgeSize="small" matTooltip="Sepetim">&nbsp;{{cartitems}}
+    <mat-icon>shopping_basket</mat-icon>
+      </a>
+
+      </div>
+    </div>
+</mat-toolbar>
+</div>
+</div>
+</div>
+
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div class="card">
+  <div style="display: flex;
+   justify-content: center;
+    border-radius: 100px; margin: 0;
+     height: 200px; width: 200px;
+      background-color: white;
+      border: 1px;">
+<img style="width: 190px;"
+src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png" alt="">
+  </div>
+  <h2>Siparişiniz Alındı</h2>
+  <strong style="margin-left: 20px;">Bizi tercih ettiğiniz için teşekkürler</strong>
+  <h3 style="margin-top: 20px; margin-left: 40px; color: rgb(171, 0, 128);"> Toplam Fiyat:
+    <strong> {{totalamount}}</strong>&nbsp;
+  </h3>
+</div>
+
+<br>
+<br>
+
+<mat-divider>
+</mat-divider>

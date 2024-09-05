@@ -1,0 +1,320 @@
+<div role="heading"
+style="display: flex; justify-content: center;
+color: white;
+font-size: 12px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+ background-color: pink;
+line-height: 30px;
+letter-spacing: 2px;">
+<span> 100₺ ve Üzeri Kargo Bedava</span>
+</div>
+
+<!-- Aşağıda toolbar bölümünü yapmaya başladım -->
+
+<div>
+<div>
+<div>
+<mat-toolbar style="background-color: transparent; height: 100px">
+    <div id="logo">
+      <a class="logo" href="/">
+        <img src="assets/images/logo.png" alt="image"
+        style="max-width: 100%;
+        max-height: 80px;
+        position: absolute; left: 50%; top: 6.3%;
+        border-radius: 50px;
+        ">
+      </a>
+    </div>
+    <div class="container" style="margin-left: auto;">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Hesabım</button>
+        <button mat-menu-item>Üye Ol</button>
+        <button mat-menu-item>Sepetim</button>
+      </mat-menu>
+      <div >
+
+    <a mat-button href="/" routerLink="/hesap" matTooltip="Hesabım">
+    <mat-icon>person</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/uye" matTooltip="Üye Ol">
+    <mat-icon>person_add</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/sepet" matBadgeColor="accent" matBadgeSize="small" matTooltip="Sepetim">&nbsp;{{cartitems}}
+    <mat-icon>shopping_basket</mat-icon>
+      </a>
+
+      </div>
+    </div>
+</mat-toolbar>
+</div>
+</div>
+</div>
+
+
+<mat-divider></mat-divider>
+
+
+<!-- <div class="container-uye">
+<div class="row-uye">
+  <div class="col-md-3 col-sm-6 mt-5" style="text-align: center;" >
+<mat-card-title style="text-align: center;"><h1>Adres Bilgileri</h1></mat-card-title>
+<mat-tab-group>
+  <mat-tab label="Adres" >
+    <mat-card-content>
+      <form action="">
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Adres Başlığı</mat-label>
+            <input matInput
+            placeholder="Ev,İş.."
+            required
+            name="adresbaslıgı"
+            ngModel
+            #adresbaslıgı="ngModel">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" style="margin-left: 20px;">
+            <mat-label>Name Surname</mat-label>
+            <input matInput
+            placeholder="Name Surname"
+            required
+            name="username"
+            ngModel
+            #username="ngModel">
+            <mat-error *ngIf="username.invalid">Username is required</mat-error>
+          </mat-form-field>
+<p></p>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input matInput
+            placeholder="Phone"
+            required
+            name="phone"
+            ngModel
+            #phone="ngModel">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="margin-left: 20px;">
+          <input
+            matInput
+            placeholder="Email*"
+            required
+            name="email"
+            ngModel
+            #email="ngModel">
+            <mat-error *ngIf="email.invalid">Email is required</mat-error>
+        </mat-form-field>
+<p>
+        <mat-form-field appearance="outline">
+          <input matInput
+          placeholder="Address"
+          required
+          name="address"
+          ngModel
+          #address="ngModel"
+          placeholder="Mahalle sokak cadde ve diğer bilgileri giriniz">
+          <mat-error *ngIf="address.invalid">Address is required</mat-error>
+          <mat-label>Address</mat-label>
+        </mat-form-field>
+      </p>
+      <mat-form-field appearance="outline">
+        <mat-label>Ülke</mat-label>
+        <mat-select>
+          <mat-option value="option">Türkiye</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" style="margin-left: 20px;">
+        <mat-label>Şehir</mat-label>
+        <mat-select>
+          <mat-option value="option">İstanbul</mat-option>
+        </mat-select>
+      </mat-form-field>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>İlçe</mat-label>
+    <mat-select>
+      <mat-option value="option">Ümraniye</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="margin-left: 20px;">
+    <mat-label>Posta Kodu</mat-label>
+    <input matInput required name="zip"
+    ngModel
+    #zip="ngModel"
+    placeholder="ex.12345">
+  </mat-form-field>
+</p>
+
+<div>
+  <button mat-raised-button type="submit" class="btn btn-primary" (click)="onSubmit()"  routerLink="/orderpage">Kaydet</button>&nbsp;
+  <button mat-raised-button type="submit" class="btn btn-warn" routerLink="/hesap">Vazgeç</button>&nbsp;
+
+
+</div>
+      </form>
+    </mat-card-content>
+  </mat-tab>
+</mat-tab-group>
+
+</div>
+</div>
+</div>
+ -->
+
+
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Adres Bilgileri</ng-template>
+  <mat-form-field appearance="outline">
+    <mat-label>Adres Başlığı</mat-label>
+    <input matInput
+    placeholder="Ev,İş.."
+    required
+    name="adresbaslıgı"
+    formControlName="firstCtrl">
+  </mat-form-field>
+<p></p>
+  <mat-form-field appearance="outline" >
+    <mat-label>Name Surname</mat-label>
+    <input matInput
+    placeholder="Name Surname"
+    required
+    name="username"
+    formControlName="firstCtrl">
+  </mat-form-field>
+<p></p>
+<mat-form-field appearance="outline">
+  <mat-label>Phone number</mat-label>
+  <input matInput
+    placeholder="Phone"
+    required
+    name="phone"
+    formControlName="firstCtrl">
+</mat-form-field>
+<p></p>
+<mat-form-field appearance="outline" >
+  <input
+    matInput
+    placeholder="Email*"
+    required
+    name="email"
+    formControlName="firstCtrl">
+</mat-form-field>
+<p></p>
+<mat-form-field appearance="outline">
+  <input matInput
+  placeholder="Address"
+  required
+  name="address"
+  formControlName="firstCtrl"
+  placeholder="Mahalle sokak cadde ve diğer bilgileri giriniz">
+  <mat-label>Address</mat-label>
+</mat-form-field>
+<p></p>
+
+<mat-form-field appearance="outline">
+<mat-label>Ülke</mat-label>
+<mat-select formControlName="firstCtrl" >
+  <mat-option value="option">Türkiye</mat-option>
+</mat-select>
+</mat-form-field>
+<mat-form-field appearance="outline" style="margin-left: 20px;">
+<mat-label>Şehir</mat-label>
+<mat-select   formControlName="firstCtrl">
+  <mat-option value="option">İstanbul</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline" style="margin-left: 20px;">
+<mat-label>İlçe</mat-label>
+<mat-select   formControlName="firstCtrl">
+<mat-option value="option"  >Ümraniye</mat-option>
+</mat-select>
+</mat-form-field>
+<p></p>
+<mat-form-field appearance="outline" >
+<mat-label>Posta Kodu</mat-label>
+<input matInput required name="zip"
+formControlName="firstCtrl"
+placeholder="ex.12345">
+</mat-form-field>
+
+<p></p>
+
+<div>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Ödeme Yöntemi</ng-template>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Kard Tipi</mat-label>
+        <mat-select formControlName="secondCtrl" >
+          <mat-option value="option">Visa</mat-option>
+          <mat-option value="option">Mastercard</mat-option>
+        </mat-select>
+        </mat-form-field>
+<p></p>
+        <mat-form-field appearance="outline">
+          <mat-label> Name On Card</mat-label>
+          <input matInput
+          placeholder="Name on Card"
+          required
+          name="namecard"
+          formControlName="secondCtrl">
+        </mat-form-field>
+<p></p>
+        <mat-form-field appearance="outline">
+          <mat-label>Card Number</mat-label>
+          <input matInput
+          placeholder="Card Number"
+          required
+          name="cardnumber"
+          formControlName="secondCtrl">
+        </mat-form-field>
+<p></p>
+        <mat-form-field appearance="outline">
+          <mat-label>Security Code</mat-label>
+          <input matInput
+          placeholder="Security Code"
+          required
+          name="scode"
+          formControlName="secondCtrl">
+          </mat-form-field>
+<p></p>
+          <mat-form-field appearance="outline">
+            <mat-label>Expiry Date</mat-label>
+            <input matInput
+            placeholder="Expiry Date"
+          required
+          name="exdate"
+          formControlName="secondCtrl">
+          </mat-form-field>
+
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext class="btn btn-success"
+         style="margin-left: 20px;">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>Son adım için siparişinizi kaydedin.</p>
+    <div>
+      <button mat-raised-button type="submit"
+       class="btn-primary" (click)="onSubmit()"
+         routerLink="/orderpage">Kaydet</button>&nbsp;
+      <button mat-raised-button type="submit
+      " class="btn btn-warn" routerLink="/hesap">Vazgeç</button>&nbsp;
+      </div>
+  </mat-step>
+</mat-stepper>

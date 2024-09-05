@@ -1,0 +1,232 @@
+<div role="heading"
+style="display: flex; justify-content: center;
+color: white;
+font-size: 12px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+ background-color: pink;
+line-height: 30px;
+letter-spacing: 2px;">
+<span> 100₺ ve Üzeri Kargo Bedava</span>
+</div>
+
+<!-- Aşağıda toolbar bölümünü yapmaya başladım -->
+
+<div>
+<div>
+<div>
+<mat-toolbar style="background-color: transparent; height: 100px">
+    <div id="logo">
+      <a class="logo" href="/">
+        <img src="assets/images/logo.png" alt="image"
+        style="max-width: 100%;
+        max-height: 80px;
+        position: absolute; left: 50%; top: 6.3%;
+        border-radius: 50px;
+        ">
+      </a>
+    </div>
+    <div class="container" style="margin-left: auto;">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Hesabım</button>
+        <button mat-menu-item>Üye Ol</button>
+        <button mat-menu-item>Sepetim</button>
+      </mat-menu>
+      <div >
+
+    <a mat-button href="/" routerLink="/hesap" matTooltip="Hesabım">
+    <mat-icon>person</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/uye" matTooltip="Üye Ol">
+    <mat-icon>person_add</mat-icon>
+      </a>
+    <a mat-button href="/" routerLink="/sepet" matBadgeColor="accent" matBadgeSize="small" matTooltip="Sepetim">&nbsp;{{cartitems}}
+    <mat-icon>shopping_basket</mat-icon>
+      </a>
+
+      </div>
+    </div>
+</mat-toolbar>
+</div>
+</div>
+</div>
+
+
+<mat-divider></mat-divider>
+
+<br>
+
+<!-- SIGN IN FORMU İÇİN -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mt-5" style="display: flex; justify-content: center; align-items: center;">
+<div class="login-page">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center;"> Giriş Yap </mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+      <mat-tab >
+          <mat-card-content>
+            <form #myLoginForm="ngForm" (ngSubmit)="doLogin(myLoginForm.value)">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Email"
+                  required
+                  name="email"
+                  ngModel
+                  #email="ngModel"
+                  [(ngModel)]="data.email">
+                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  required
+                  minlength="6"
+                  name="password"
+                  ngModel
+                  #password="ngModel"
+                  [(ngModel)]="data.password">
+
+
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+              <div class="row" style="justify-content: space-between; margin-top: 10px; " >
+              <button
+                mat-raised-button
+                color="primary"
+                class="login-button">
+                Giriş Yap
+              </button>
+<br>
+              <button
+                mat-raised-button
+                class="login-button">
+                Login with Google
+              </button>
+              </div>
+<br>
+<button
+  mat-raised-button
+  class="login-button"
+  routerLink="/uyeliksiz"
+>
+  Üyeliksiz Devam Et
+  <mat-icon>arrow_forward</mat-icon>
+</button>
+            </form>
+          </mat-card-content>
+      </mat-tab>
+
+        <mat-card-content>
+          <form action="">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="User Name"
+                required
+                name="username"
+                ngModel
+                #username="ngModel">
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error
+                *ngIf="username.invalid">
+                Username is required
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                required
+                name="email"
+                ngModel
+                #email="ngModel">
+                <mat-error *ngIf="email.invalid">Email is required</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+<br>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="6"
+                name="password"
+                ngModel
+                #password="ngModel">
+
+
+              <mat-icon matSuffix>lock</mat-icon>
+
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Adres"
+              required
+              name="adres"
+              ngModel
+              #adres="ngModel">
+              <mat-icon matSuffix>location_on</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Telefon Numarası"
+              required
+              name="Telefon"
+              ngModel
+              #Telefon="ngModel">
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+            <br>
+            <button
+              mat-raised-button
+              color="primary"
+              class="login-button">
+              Kayıt Ol
+            </button>
+          </form>
+        </mat-card-content>
+      
+    </mat-tab-group>
+
+
+    <mat-card-footer>
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <a mat-button matTooltip="Facebook"  [href]="shareOnFacebook()" target="_blank">
+          <mat-icon >facebook</mat-icon>
+          <!-- <img src="src/assets/images/facebook.png" alt="Facebook"> -->
+        </a>
+        <a mat-button matTooltip="Twitter" [href]="shareOnTwitter()" target="_blank">
+
+          <img src="assets/images/twitter-icon.png" alt="Twitter">
+        </a>
+        <a mat-button matTooltip="Linkedln" [href]="shareOnLinkedIn()" target="_blank">
+          <mat-icon>linkedin</mat-icon>
+        </a>
+        <a mat-button matTooltip="WhatsApp" [href]="shareOnWhatsApp()" target="_blank">
+          <img src="assets/images/whatsapp-icon.png" alt="WhatsApp">
+        </a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
+
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<mat-divider></mat-divider>
+
